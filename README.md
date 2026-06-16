@@ -50,6 +50,47 @@ MO-ADAGRAD/
 No installation step is required beyond having the toolboxes above: everything is plain
 `.m` files, and `s2mpjlib.m` only needs to be on the MATLAB path.
 
+## Getting the CUTEst problem files
+
+`main_mixcutest.m` is the only driver that needs single-objective CUTEst problems, and
+those `.m` files are not shipped in this package — they are maintained upstream in the
+[S2MPJ repository](https://github.com/GrattonToint/S2MPJ) (Gratton & Toint), which is
+also where the included `s2mpjlib.m` comes from. To set this up:
+
+1. Get the repository, e.g.
+   ```
+   git clone https://github.com/GrattonToint/S2MPJ.git
+   ```
+   (or download it as a zip from GitHub).
+2. The individual problem files live under `matlab_problems/` in that repository. GitHub's
+   web UI only lists a fraction of them (there are thousands), so if you don't want to
+   clone the whole repo, instead download `all_matlab_problems.tar.gz` from the repository
+   root and extract it — this unpacks the full `matlab_problems/` folder.
+3. By default, `main_mixcutest.m`'s `list` only needs 9 distinct problems: `ALLINITU`,
+   `ARWHEAD`, `BROWNAL`, `BROWNDEN`, `CUBE`, `ROSENBR`, `VARDIM`, `WAYSEA1`, `ZANGWIL2`.
+   You can either copy just these 9 `.m` files into a local folder (e.g. recreate a
+   `mix_CUTEst_instances/` folder next to `main_mixcutest.m` and put them there), or
+   point MATLAB straight at the cloned `matlab_problems/` folder — either way works as
+   long as the folder is on the MATLAB path.
+4. In `main_mixcutest.m`, update the line
+   ```matlab
+   addpath ./mix_CUTEst_instances/
+   ```
+   to point at wherever you placed/cloned the files, e.g.
+   ```matlab
+   addpath /path/to/S2MPJ/matlab_problems/
+   ```
+5. Each problem `NAME` then exposes `[pb,pbm] = NAME('setup')` (to get `pb.x0`, `pb.name`,
+   etc.) and `[f,g] = NAME('fx',x)` (function + gradient at `x`), which is exactly the
+   interface `main_mixcutest.m` and `MultiAdagrad.m` rely on. If you want to try other
+   CUTEst problems beyond the default 9, just add more rows to `list` and make sure the
+   corresponding `.m` files are reachable from the same path.
+
+`main_benchmark.m` and the two `MT_*.m` scripts do **not** need any of this — their
+problem definitions (`benchmark_instances/`, and the training data generated inline)
+are fully self-contained in this package.
+
+
 ## Running the experiments
 
 In all three cases, `param.solver` selects which method is run:
@@ -69,10 +110,13 @@ in `valnoise`. Results are appended to `results_mix_cutest.txt` in the current f
 one line per (solver, pair, starting point, noise level) combination, formatted as in
 the header comment of `MultiAdagrad.m`.
 
-The folder `mix_CUTEst_instances/` contains the single-objective problems needed. 
-Any S2MPJ-format problem `NAME` exposes
+Make sure you've completed the "Getting the CUTEst problem files" step above first —
+this script will error out at the first `name('setup')` call if `ALLINITU.m`,
+`ARWHEAD.m`, etc. aren't on the MATLAB path. Any S2MPJ-format problem `NAME` exposes
 `[pb,pbm] = NAME('setup')` to get the starting point/name, and
-`[f,g] = NAME('fx',x)` to evaluate the function and gradient at `x`.
+`[f,g] = NAME('fx',x)` to evaluate the function and gradient at `x`; you can pair up any
+other CUTEst problems the same way by adding rows to `list` once their `.m` files are
+reachable.
 
 ### 2. Noisy benchmark pairs (`main_benchmark.m`)
  
