@@ -16,7 +16,6 @@ Tables 2–3) and the multi-task classification runs (Section 4.3, Table 4, Figu
 ## Repository layout
 
 ```
-Codes-submissionFeb2026-bench+mix+MT/
 ├── MultiAdagrad.m              core solver: MO-Adagrad and MO-Descent, shared by the two
 │                                main_*.m drivers below
 ├── main_mixcutest.m             driver: noisy bi-objective instances built from CUTEst pairs
