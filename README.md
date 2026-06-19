@@ -44,7 +44,8 @@ MO-ADAGRAD/
   doesn't need it.
 
 No installation step is required beyond having the toolboxes above: everything is plain
-`.m` files, and `s2mpjlib.m` only needs to be on the MATLAB path.
+`.m` files, and `s2mpjlib.m` (to run the tests on CUTEst instances) only needs to be on 
+the MATLAB path.
 
 ## Getting the CUTEst problem files
 
