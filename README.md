@@ -25,10 +25,6 @@ MO-ADAGRAD/
 │                                (lovison3/4, MOP1, T1, T2 — Table 2 "benchmark" rows, Table 3)
 ├── MT_Quadrants_Circle.m         multi-task experiment "Quadrants-Circle" (Table 4, Fig. 2)
 ├── MT_Diagonals_Circle.m         multi-task experiment "Diagonals-Circle" (Table 4, Fig. 3)
-├── s2mpjlib.m                    S2MPJ runtime support library (Gratton & Toint), required
-│                                by every file in mix_CUTEst_instances/
-├── mix_CUTEst_instances/         22 single-objective CUTEst problems, translated to MATLAB
-│                                via S2MPJ; each exposes analytic function+gradient values
 ├── benchmark_instances/          definitions of lovison3, lovison4, MOP1, T1, T2 (problem
 │                                setup + symbolic gradient of each component function)
 └── README.md                     this file
