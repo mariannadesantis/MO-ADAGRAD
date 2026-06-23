@@ -17,7 +17,7 @@ Tables 2–3) and the multi-task classification runs (Section 4.3, Table 4, Figu
 
 ```
 MO-ADAGRAD/
-├── MultiAdagrad.m              core solver: MO-Adagrad and MO-Descent, shared by the two
+├── MO_Methods.m                 core solver: MO-Adagrad and MO-Descent, shared by the two
 │                                main_*.m drivers below
 ├── main_mixcutest.m             driver: noisy bi-objective instances built from CUTEst pairs
 │                                (Table 2, "CUTEst" rows)
@@ -79,7 +79,7 @@ also where the included `s2mpjlib.m` comes from. To set this up:
    ```
 5. Each problem `NAME` then exposes `[pb,pbm] = NAME('setup')` (to get `pb.x0`, `pb.name`,
    etc.) and `[f,g] = NAME('fx',x)` (function + gradient at `x`), which is exactly the
-   interface `main_mixcutest.m` and `MultiAdagrad.m` rely on. If you want to try other
+   interface `main_mixcutest.m` and `MO_Methods.m` rely on. If you want to try other
    CUTEst problems beyond the default 9, just add more rows to `list` and make sure the
    corresponding `.m` files are reachable from the same path.
 
@@ -105,7 +105,7 @@ pairs are hard-coded in the `list` cell array at the top of the script — e.g.
 (the start of the first problem, of the second, and their average), at the noise levels
 in `valnoise`. Results are appended to `results_mix_cutest.txt` in the current folder,
 one line per (solver, pair, starting point, noise level) combination, formatted as in
-the header comment of `MultiAdagrad.m`.
+the header comment of `MO_Methods.m`.
 
 Make sure you've completed the "Getting the CUTEst problem files" step above first —
 this script will error out at the first `name('setup')` call if `ALLINITU.m`,
@@ -140,7 +140,7 @@ the other two drivers).
 ## N.B: computation of the common descent direction through fmincon
 
 - The common descent direction is computed by `comp_dir` (a local function at the
-  bottom of `MultiAdagrad.m`, duplicated locally inside the two `MT_*.m` scripts) by
+  bottom of `MO_Methods.m`, duplicated locally inside the two `MT_*.m` scripts) by
   solving (Ω(x)) with `fmincon`'s SQP algorithm; its exit flag is returned as `gs_flag`
   and treated as successful also when `fmincon` reports a small first-order optimality
   measure even if `exitflag ~= 1`.
