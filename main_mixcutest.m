@@ -54,8 +54,7 @@ for noise = 1:4 % Level of noise
 
                 name = str2func(list{i,1});
 
-                % name = str2func(['BROWNDEN']);
-                %% set up the problem
+                % set up the problem
                 [ pb, pbm ] = name( 'setup');
 
                 name2 = str2func(list{i,2});
