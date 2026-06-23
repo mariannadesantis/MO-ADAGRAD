@@ -81,7 +81,7 @@ for j = 1: size(list,1) % instance
 
                 %Call solver:
                 [x,norm_g,f12,iters,eff_meas,flag, gs_flag, total_time] = ...
-                    MultiAdagrad(fun1, fun2, xstart, param);
+                    MO_Methods(fun1, fun2, xstart, param);
 
                 ff(i,1:2 ) = [f12(iters,1), f12(iters,2)];
                 % Normalize function evaluations for LS:
