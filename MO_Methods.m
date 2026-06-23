@@ -1,5 +1,5 @@
 function [x, norm_gs, f12, i, eff_meas, flag, gs_flag, total_time] = ...
-    MultiAdagrad(fun1, fun2, x0, param)
+    MO_Methods(fun1, fun2, x0, param)
 % Implementation of the MO-Descent [2] and MO-Adagrad [1] algorithms for
 % bi-objective instances.
 
