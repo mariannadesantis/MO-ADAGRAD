@@ -102,7 +102,7 @@ for noise = 1:4 % Level of noise
 
                     % Call solver:
                     [x,norm_g,f12,iter,eff_meas,exitflag, gs_flag, total_time]= ...
-                        MultiAdagrad(fun1, fun2, xstart, param);
+                        MO_Methods(fun1, fun2, xstart, param);
 
                     % Save results
                     fprintf(fileID,'%5s - %8s/%8s n = %3d, sp = %3d, noise = %.2e, ||gs|| = %e, geval = %4d, feval = %4d, flag = %2d, gs_flag = %2d, time = %.2d, objs: f1 = %f, f2 = %f\n', ...
