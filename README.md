@@ -4,7 +4,7 @@ This is the MATLAB code for MO-ADAGRAD, the objective-function free algorithm
 for multi-objective optimization presented in:
 
 > M. De Santis, G. Eichfelder, M. Porcelli, *"Objective-Function Free Multi-Objective
-> Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm"*, arXiv:2602:05893,2026.
+> Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm"*, arXiv:2602:05893, 2026.
 
 
 Beside the implementation of **MO-Adagrad** (Algorithm 1 in the paper), 
