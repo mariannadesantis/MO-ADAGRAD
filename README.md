@@ -155,6 +155,7 @@ If you use this code, please cite the paper:
   title   = {Objective-Function Free Multi-Objective Optimization: Rate of Convergence
              and Performance of an Adagrad-like algorithm},
   author  = {De Santis, Marianna and Eichfelder, Gabriele and Porcelli, Margherita},
+  journal = {arXiv:2602:05893},
   year    = {2026}
 }
 ```
