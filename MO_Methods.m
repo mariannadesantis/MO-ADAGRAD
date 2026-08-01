@@ -7,7 +7,8 @@ function [x, norm_gs, f12, i, eff_meas, flag, gs_flag, total_time] = ...
 % [1] M. De Santis, G. Eichfelder. M. Porcelli,
 % "Objective-Function Free Multi-Objective Optimization: Rate of Convergence
 % and Performance of an Adagrad-like algorithm",
-% pp. 1-21, 2026 (arXiv:2602:05893).
+% Computational Optimization and Applications (2026),
+% https://doi.org/10.1007/s10589-026-00813-0.
 % [2] J. Fliege, B. F. Svaiter,
 % "Steepest descent methods for multicriteria optimization",
 % Mathematical Methods of Operations Research, 51(3):479–494, 2000.
