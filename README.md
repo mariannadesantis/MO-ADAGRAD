@@ -5,8 +5,8 @@ for multi-objective optimization presented in:
 
 > M. De Santis, G. Eichfelder, M. Porcelli, *"Objective-Function Free Multi-Objective
 > Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm"*,
-> to appear on Computational Optimization and Applications, arXiv:2602:05893, 2026.
-
+> Computational Optimization and Applications (2026)
+> https://doi.org/10.1007/s10589-026-00813-0.
 
 Beside the implementation of **MO-Adagrad** (Algorithm 1 in the paper), 
 the Armijo line-search method used as a baseline **MO-Descent** (Algorithm 2 in the paper) 
@@ -156,7 +156,8 @@ If you use this code, please cite the paper:
   title   = {Objective-Function Free Multi-Objective Optimization: Rate of Convergence
              and Performance of an Adagrad-like algorithm},
   author  = {De Santis, Marianna and Eichfelder, Gabriele and Porcelli, Margherita},
-  journal = {to appear on Computational Optimization and Applications, arXiv:2602:05893},
+  journal = {Computational Optimization and Applications},
+  doi     = {https://doi.org/10.1007/s10589-026-00813-0},
   year    = {2026}
 }
 ```
